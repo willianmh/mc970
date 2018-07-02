@@ -7,7 +7,7 @@ def time[T](descr: String)(f: => T): T = {
   val end = System.nanoTime
   val time = (end - start)/1e6
   println(descr + ": time = " + time + "ms")
-  r
+  
 }
 
 object Matrix {
