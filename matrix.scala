@@ -1,11 +1,18 @@
-// import org.apache.spark.SparkConf
-// import org.apache.spark.SparkContext
-// import org.apache.spark.SparkContext._
+import org.apache.spark.SparkConf
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
 
 import scala.collection.Iterator
 import scala.util.{Random => rand}
 
+def time[T](descr: String)(f: => T): T = {
+  val start = System.nanoTime
+  val r = f
+  val end = System.nanoTime
+  val time = (end - start)/1e6
+  println(descr + ": time = " + time + "ms")
 
+}
 
 object Matrix {
   def mulLazy(m1: Iterator[Array[Double]], m2: Matrix): Iterator[Array[Double]] = {
